@@ -46,20 +46,6 @@ public class RuleWeightLogicChain extends AbstractLogicChain {
         List<Long> analyticalSortedKeys = new ArrayList<>(analyticalValueGroup.keySet());
         Collections.sort(analyticalSortedKeys);
 
-        // 3. 找出最小符合的值，也就是【4500 积分，能找到 4000:102,103,104,105】、【5000 积分，能找到 5000:102,103,104,105,106,107】
-        /* 找到最后一个符合的值[如用户传了一个 5900 应该返回正确结果为 5000]，如果使用 Lambda findFirst 需要注意使用 sorted 反转结果
-         *   Long nextValue = null;
-         *         for (Long analyticalSortedKeyValue : analyticalSortedKeys) {
-         *             if (userScore >= analyticalSortedKeyValue){
-         *                 nextValue = analyticalSortedKeyValue;
-         *             }
-         *         }
-         * 星球伙伴 @慢慢来 ID 6267 提供
-         * Long nextValue = analyticalSortedKeys.stream()
-         *      .filter(key -> userScore >= key)
-         *      .max(Comparator.naturalOrder())
-         *      .orElse(null);
-         */
         Long nextValue = analyticalSortedKeys.stream()
                 .sorted(Comparator.reverseOrder())
                 .filter(analyticalSortedKeyValue -> userScore >= analyticalSortedKeyValue)
