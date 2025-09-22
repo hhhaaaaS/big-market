@@ -4,6 +4,7 @@ package org.example.domain.strategy.service.rule.tree.factory.engine;
 import lombok.*;
 import org.example.domain.strategy.model.valobj.RuleLogicCheckTypeVO;
 import org.example.domain.strategy.model.valobj.RuleTreeVO;
+import org.example.domain.strategy.service.rule.chain.factory.DefaultChainFactory;
 import org.example.domain.strategy.service.rule.tree.ILogicTreeNode;
 import org.example.domain.strategy.service.rule.tree.factory.engine.impl.DecisionTreeEngine;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,6 @@ import java.util.Map;
 
 /**
  * @description 规则树工厂
-
  */
 @Service
 public class DefaultTreeFactory {
@@ -36,14 +36,14 @@ public class DefaultTreeFactory {
     @NoArgsConstructor
     public static class TreeActionEntity {
         private RuleLogicCheckTypeVO ruleLogicCheckType;
-        private StrategyAwardData strategyAwardData;
+        private StrategyAwardVO strategyAwardVO;
     }
 
     @Data
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class StrategyAwardData {
+    public static class StrategyAwardVO {
         /** 抽奖奖品ID - 内部流转使用 */
         private Integer awardId;
         /** 抽奖奖品规则 */

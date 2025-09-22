@@ -8,8 +8,6 @@ import java.time.Duration;
 
 /**
  * Redis 服务 - Redisson
- *
- *
  */
 @Service("redissonService")
 public class RedissonService implements IRedisService {
@@ -44,6 +42,16 @@ public class RedissonService implements IRedisService {
     @Override
     public <T> RDelayedQueue<T> getDelayedQueue(RBlockingQueue<T> rBlockingQueue) {
         return redissonClient.getDelayedQueue(rBlockingQueue);
+    }
+
+    @Override
+    public void setAtomicLong(String key, long value) {
+        redissonClient.getAtomicLong(key).set(value);
+    }
+
+    @Override
+    public Long getAtomicLong(String key) {
+        return redissonClient.getAtomicLong(key).get();
     }
 
     @Override
@@ -154,6 +162,11 @@ public class RedissonService implements IRedisService {
     @Override
     public <T> RBloomFilter<T> getBloomFilter(String key) {
         return redissonClient.getBloomFilter(key);
+    }
+
+    @Override
+    public Boolean setNx(String key) {
+        return redissonClient.getLock(key).tryLock();
     }
 
 
