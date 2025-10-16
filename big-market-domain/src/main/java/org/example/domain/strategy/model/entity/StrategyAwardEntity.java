@@ -25,7 +25,6 @@ public class StrategyAwardEntity {
     /** 抽奖奖品副标题 */
     private String awardSubtitle;
     /** 奖品库存总量 */
-    /** 奖品库存总量 */
     private Integer awardCount;
     /** 奖品库存剩余 */
     private Integer awardCountSurplus;
@@ -33,5 +32,7 @@ public class StrategyAwardEntity {
     private BigDecimal awardRate;
     /** 排序 */
     private Integer sort;
+    /** 规则模型，rule配置的模型同步到此表，便于使用 */
+    private String ruleModels;
 
 }

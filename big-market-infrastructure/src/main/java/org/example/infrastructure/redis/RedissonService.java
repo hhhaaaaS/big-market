@@ -1,15 +1,18 @@
 package org.example.infrastructure.redis;
 
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Redis 服务 - Redisson
  */
 @Service("redissonService")
+@Slf4j
 public class RedissonService implements IRedisService {
 
     @Resource
@@ -167,6 +170,17 @@ public class RedissonService implements IRedisService {
     @Override
     public Boolean setNx(String key) {
         return redissonClient.getLock(key).tryLock();
+    }
+
+    @Override
+    public Boolean setNx(String key, long expired, TimeUnit timeUnit){
+        Boolean result=false;
+        try {
+            result=redissonClient.getLock(key).tryLock(expired, timeUnit);
+        }catch (Exception e){
+            log.info("分布式锁获取失败！key:{}",key);
+        }
+        return result;
     }
 
 

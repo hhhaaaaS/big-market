@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.domain.activity.model.valobj.OrderStateVO;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -21,6 +22,12 @@ public class ActivityOrderEntity {
      * 用户ID
      */
     private String userId;
+
+    /**
+     * sku
+     */
+    private Long sku;
+
 
     /**
      * 活动ID
@@ -63,8 +70,18 @@ public class ActivityOrderEntity {
     private Integer monthCount;
 
     /**
+     * 支付金额
+     */
+    private BigDecimal payAmount;
+
+    /**
      * 订单状态
      */
     private OrderStateVO state;
+
+    /**
+     * 业务仿重ID - 外部透传的，确保幂等
+     */
+    private String outBusinessNo;
 
 }
