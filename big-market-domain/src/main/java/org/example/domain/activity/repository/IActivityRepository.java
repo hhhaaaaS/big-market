@@ -61,4 +61,9 @@ public interface IActivityRepository {
 
     void updateOrder(DeliveryOrderEntity deliveryOrderEntity);
 
+    List<SkuProductEntity> querySkuProductEntityListByActivityId(Long activityId);
+
+    UnpaidActivityOrderEntity queryUnpaidActivityOrder(SkuRechargeEntity skuRechargeEntity);
+
+
 }
