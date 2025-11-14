@@ -23,7 +23,7 @@ app:
 # Spring 配置；rabbitmq
 spring:
   rabbitmq:
-    addresses: 127.0.0.1
+    addresses: 106.13.29.45
     port: 5672
     username: admin
     password: admin
@@ -46,7 +46,7 @@ mybatis:
 redis:
   sdk:
     config:
-      host: 127.0.0.1
+      host: 106.13.29.45
       port: 6379
       pool-size: 10
       min-idle-size: 5
@@ -70,7 +70,7 @@ mini-db-router:
       list: db01,db02
       db00:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://106.13.29.45:3306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: 123456
         type-class-name: com.zaxxer.hikari.HikariDataSource
@@ -85,7 +85,7 @@ mini-db-router:
           connection-test-query: SELECT 1
       db01:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://106.13.29.45:3306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: 123456
         type-class-name: com.zaxxer.hikari.HikariDataSource
@@ -100,7 +100,7 @@ mini-db-router:
           connection-test-query: SELECT 1
       db02:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+        url: jdbc:mysql://106.13.29.45:3306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
         username: root
         password: 123456
         type-class-name: com.zaxxer.hikari.HikariDataSource
