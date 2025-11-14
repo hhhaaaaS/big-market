@@ -36,7 +36,6 @@ public class RedisClientConfig {
 
         config.useSingleServer()
                 .setAddress("redis://" + properties.getHost() + ":" + properties.getPort())
-//                .setPassword(properties.getPassword())
                 .setConnectionPoolSize(properties.getPoolSize())
                 .setConnectionMinimumIdleSize(properties.getMinIdleSize())
                 .setIdleConnectionTimeout(properties.getIdleTimeout())
@@ -45,7 +44,8 @@ public class RedisClientConfig {
                 .setRetryInterval(properties.getRetryInterval())
                 .setPingConnectionInterval(properties.getPingInterval())
                 .setKeepAlive(properties.isKeepAlive())
-        ;
+                .setPassword(properties.getPassword())
+                .setDatabase(0);
 
         return Redisson.create(config);
     }
