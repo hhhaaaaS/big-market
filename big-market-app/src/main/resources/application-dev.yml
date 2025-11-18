@@ -47,7 +47,12 @@ spring:
 # MyBatis 配置【如需使用记得打开】
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
-  config-location:  classpath:/mybatis/config/mybatis-config.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+
+elastic:
+  config:
+    host: 106.13.29.45
+    port: 9200
 
 # Redis
 redis:
